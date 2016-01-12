@@ -465,10 +465,22 @@
   'ooc_char':
     'begin': '\''
     'end': '\''
-    'name': 'string.quoted.single.ooc'
+    'name': 'string.quoted.character.ooc'
     'patterns': [
       {
+        'match': '(?x) \\\\ x \\w{2}'
+        'name': 'constant.numeric.hex.ooc'
+      }
+      {
+        'match': '(?x) \\\\ \\w{3}'
+        'name': 'constant.numeric.octal.ooc'
+      }
+      {
         'include': '#escaped_char'
+      }
+      {
+        'match': '(?<=\\w)\\w'
+        'name': 'invalid.illegal.character.ooc'
       }
     ]
   'ooc_numbers':
