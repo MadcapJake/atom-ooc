@@ -1,8 +1,8 @@
 {
-  "name": "language-ooc",
+  "name": "atom-ooc",
   "version": "0.1.0",
-  "description": "Syntax highlighting for ooc files",
-  "repository": "https://github.com/cogneco/language-ooc",
+  "description": "Complete ooc support for Atom Editor",
+  "repository": "https://github.com/madcapjake/atom-ooc",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
