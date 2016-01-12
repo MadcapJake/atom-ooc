@@ -588,10 +588,12 @@
     'match': '(?mx)\n\t\t    (\\-\\>) \\s*\n\t\t    (?:\n\t\t\t\t(?:(This) |\n\t\t        ([A-Z_]\\w*))\n\t\t        ([@*]*)\n\t\t    )'
     'name': 'meta.function.return-type.ooc'
   'var_explicit_decl':
-    'begin': '[_a-zA-Z]\\w*\\s*(?=,|:[^=])'
+    'begin': '([_a-zA-Z]\\w*)\\s*(,|:[^=])'
     'beginCaptures':
-      '0':
+      '1':
         'name': 'variable.other.ooc'
+      '2':
+        'name': 'punctuation.variable.definition.ooc'
     'end': '(?mx)(?:
       (?:
         :\\s*
@@ -625,7 +627,7 @@
         'name': 'storage.modifier.pointer-arith.ooc'
       '8':
         'name': 'support.type.generic.ooc'
-    'name': 'meta.definition.variable.explicit.ooc'
+    'name': 'meta.variable.definition.explicit.ooc'
     'patterns': [
       {
         'include': '#comments'
