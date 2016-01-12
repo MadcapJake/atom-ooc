@@ -231,7 +231,7 @@
       }
       {
         'begin': '(?mx)
-        ([_a-z]\\w*) \\s* : \\s*
+        ([_a-z]\\w*\\??) \\s* : \\s*
         ((?:(?:static|proto|inline|override|final|virtual|abstract)\\s+)*)
         (?:
           (extern|unmangled)(?:\\s*\\(([^\\)]+)\\))?\\s+
