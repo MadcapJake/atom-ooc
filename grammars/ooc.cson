@@ -211,7 +211,19 @@
         ]
       }
       {
-        'begin': '(?mx)\n        \t\t        ([_a-z]\\w*) \\s* : \\s*\n        \t\t            ((?:(?:static|proto|inline|override|final|virtual|abstract)\\s+)*)\n        \t\t            (?:(extern|unmangled)(?:\\s*\\(([^\\)]+)\\))?\\s+\n        \t\t                ((?:(?:static|proto|virtual|override|inline|final|abstract)\\s+)*)\n        \t\t            )?\n        \t\t            \n        \t\t            (func)\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t(?:\\s*@)?\n\t\t\t\t\t\t\t\n        \t\t            (?:\\s*(~[A-Za-z_]\\w*))?\n                        \n                            (?:\n                                \\s*<\\s*([^<]+)\\s*>\n                            )?\n                            \n        \t\t            \\s* \\('
+        'begin': '(?mx)
+        ([_a-z]\\w*) \\s* : \\s*
+        ((?:(?:static|proto|inline|override|final|virtual|abstract)\\s+)*)
+        (?:
+          (extern|unmangled)(?:\\s*\\(([^\\)]+)\\))?\\s+
+          ((?:(?:static|proto|virtual|override|inline|final|abstract)\\s+)*)
+        )?
+        (func)(\\s*@)?
+        (?:\\s*(~[A-Za-z_]\\w*))?
+        (?:
+          \\s*<\\s*([^<]+)\\s*>
+        )?
+        \\s* \\('
         'beginCaptures':
           '1':
             'name': 'entity.name.function.ooc'
@@ -226,10 +238,12 @@
           '6':
             'name': 'storage.type.function.ooc'
           '7':
-            'name': 'storage.modifier.func-tag.ooc'
+            'name': 'keyword.other.special-method.reference.ooc'
           '8':
-            'name': 'support.type.generic.ooc'
+            'name': 'storage.modifier.func-tag.ooc'
           '9':
+            'name': 'support.type.generic.ooc'
+          '10':
             'name': 'keyword.other.return-type.ooc'
           '10':
             'name': 'storage.type.ooc'
