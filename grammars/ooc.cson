@@ -474,23 +474,26 @@
   'ooc_numbers':
     'patterns': [
       {
-        'match': '(0c[0-7]+)'
+        'match': '(0c[0-7_]+)'
         'name': 'constant.numeric.integer.octal.ooc'
       }
       {
-        'match': '(0x[0-9a-fA-F]+)'
+        'match': '(0x[0-9a-fA-F_]+)'
         'name': 'constant.numeric.integer.hexadecimal.ooc'
       }
       {
-        'match': '(0b[01]+)'
+        'match': '(0b[01_]+)'
         'name': 'constant.numeric.integer.binary.ooc'
       }
       {
-        'match': '(?x) (?<! 0[bcx] ) (\n                            (?: (?:[0-9]*)\\.(?:[0-9]+) | (?:[0-9]+)\\.(?:[0-9]*) )\n                            (?: [eE][+\\-]?\\d+)?\n                        )'
+        'match': '(?x) (?<! 0[bcx] ) (
+          (?: (?:[0-9_]*)\\.(?:[0-9_]+) | (?:[0-9_]+)\\.(?:[0-9_]*) )
+          (?: [eE][+\\-]?[\\d_]+)?
+        )'
         'name': 'constant.numeric.float.ooc'
       }
       {
-        'match': '(?x)\\b([0-9]+)(?: [eE][+\\-]?\\d+)?'
+        'match': '(?x)\\b([0-9_]+)(?: [eE][+\\-]?[\\d_]+)?'
         'name': 'constant.numeric.integer.ooc'
       }
     ]
