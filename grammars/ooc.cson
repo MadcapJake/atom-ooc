@@ -510,12 +510,33 @@
       }
     ]
   'ooc_string':
-    'begin': '"'
+    'begin': 'c?"'
     'end': '"'
     'name': 'string.quoted.double.ooc'
     'patterns': [
       {
+        'match': '(?x) \\\\ x \\w{2}'
+        'name': 'constant.numeric.hex.ooc'
+      }
+      {
+        'match': '(?x) \\\\ \\w{3}'
+        'name': 'constant.numeric.octal.ooc'
+      }
+      {
         'include': '#escaped_char'
+      }
+      {
+        'begin': '#{'
+        'end': '}'
+        'captures':
+          '0':
+            'name': 'punctuation.section.embedded.ooc'
+        'name': 'meta.interpolation.ooc'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
       }
     ]
   'parameters':
@@ -571,7 +592,22 @@
     'beginCaptures':
       '0':
         'name': 'variable.other.ooc'
-    'end': '(?mx)(?:\n\t\t\t(?:\n\t\t\t    :\\s*\n\t\t\t    (?:\n\t\t\t        (?:\n\t\t\t            (?:\n\t\t\t                (static) |\n\t\t\t                (const) |\n\t\t\t                (extern) (?:\\s* \\( \\s* ([^\\)]+) \\s* \\) )?\n\t\t\t            ) \\s+\n\t\t\t        )*\n                )\n\t\t\t    (?: (?: (This) | ([A-Z_]\\w*)) ([@&]*) )\n\t\t\t\t(?: \\s* \\<\\s*([A-Z_]\\w*)\\s*\\> )?\n\t\t\t) | ; | $ )'
+    'end': '(?mx)(?:
+      (?:
+        :\\s*
+        (?:
+          (?:
+            (?:
+              (static) |
+              (const) |
+              (extern) (?:\\s* \\( \\s* ([^\\)]+) \\s* \\)
+            )?
+          ) \\s+
+        )*
+      )
+      (?: (?: (This) | ([A-Z_]\\w*)) ([@&]*) )
+      (?: \\s* \\<\\s*([A-Z_]\\w*)\\s*\\> )?
+    ) | ; | $ )'
     'endCaptures':
       '1':
         'name': 'keyword.other.ooc'
