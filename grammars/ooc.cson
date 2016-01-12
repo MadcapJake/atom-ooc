@@ -289,12 +289,57 @@
       }
     ]
   'imports':
-    'begin': '\\b(?:use|include|import)\\b'
+    'begin': '\\b(use|include|import)\\b'
+    'captures':
+      '1':
+        'name': 'keyword.control.module.ooc'
     'end': ';|$'
-    'name': 'keyword.control.import.ooc'
+    'name': 'meta.statement.module.ooc'
     'patterns': [
       {
         'include': '#comments'
+      }
+      {
+        'match': '(?<=\\s|\\/)[\\-\\w]+(?=;|,|$| into| \\|)'
+        'name': 'variable.other.module.ooc'
+      }
+      {
+        'match': '(?<=\\s|\\/)[\\-\\w]+(?=\\/)'
+        'name': 'entity.package.ooc'
+      }
+      {
+        'begin': '\\['
+        'end': '\\]'
+        'name': 'meta.statement.module.multi.ooc'
+        'patterns': [
+          {
+            'match': '\\b[\\-\\w]+\\b'
+            'name': 'variable.other.module.ooc'
+          }
+        ]
+      }
+      {
+        'match': '\\binto\\b'
+        'name': 'keyword.control.namespace.ooc'
+      }
+      {
+        'begin': '(?<=\\| )\\('
+        'end': '\\)'
+        'name': 'meta.statement.module.include.settings.ooc'
+        'patterns': [
+          {
+            'match': '([\\w\\-]+)(=)'
+            'captures':
+              '1':
+                'name': 'constant.other.symbol.include.ooc'
+              '2':
+                'name': 'keyword.operator.assignment.ooc'
+            'name': 'meta.statement.module.include.settings.assignment.ooc'
+          }
+          {
+            'include': '#literals'
+          }
+        ]
       }
     ]
   'interface_decl':
