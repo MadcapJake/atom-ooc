@@ -27,6 +27,9 @@
     'include': '#class_decl'
   }
   {
+    'include': '#enum_decl'
+  }
+  {
     'include': '#interface_decl'
   }
   {
@@ -89,6 +92,22 @@
         'name': 'entity.other.inherited-class.ooc'
     'match': '(?mx)\n            ([_A-Z]\\w* \\s*) : \\s* (abstract\\s+)? (class)\n            (?:\n                \\s*<\\s*([^<]+)\\s*>\\s*\n            )?\n\t\t   (?:\n                \\s* (extends)\n            )?\n            '
     'name': 'meta.class.ooc'
+  'enum_decl':
+    'captures':
+      '1':
+        'name': 'entity.name.type.class.enum.ooc'
+      '2':
+        'name': 'storage.type.class.enum.ooc'
+      '3':
+        'name': 'keyword.operator.increment.ooc'
+      '4':
+        'name': 'constant.numeric.integer.increment.ooc'
+    'match': '(?mx)
+    ([_A-Z]\\w* \\s*) : \\s* (enum) \\s*
+    (?:
+      \\( ([+*]) (\\d+) \\)
+    )?'
+    'name': 'meta.enum.ooc'
   'comments':
     'patterns': [
       {
@@ -135,9 +154,9 @@
   'cover_decl':
     'captures':
       '1':
-        'name': 'entity.name.type.cover.ooc'
+        'name': 'entity.name.type.class.cover.ooc'
       '2':
-        'name': 'storage.type.cover.ooc'
+        'name': 'storage.type.class.cover.ooc'
       '3':
         'name': 'storage.modifier.extends.from.ooc'
       '4':
