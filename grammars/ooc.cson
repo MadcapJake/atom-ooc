@@ -393,8 +393,12 @@
         'name': 'keyword.operator.assignment.ooc'
       }
       {
-        'match': '(?:[\\*\\-\\+/|&]|<{2,3}|>{2,3})'
+        'match': '(?:(?<!\\w)&|[\\*\\-\\+/|]|<{2,3}|>{2,3})'
         'name': 'keyword.operator.arithmetic.ooc'
+      }
+      {
+        'match': '(?<=\\w)[&@]'
+        'name': 'keyword.other.special-method.reference.ooc'
       }
       {
         'match': '\\b(?:true|false)\\b'
@@ -552,7 +556,7 @@
           '1':
             'name': 'storage.type.ooc'
           '2':
-            'name': 'storage.modifier.pointer-arith.ooc'
+            'name': 'keyword.other.special-method.reference.ooc'
         'match': '([_A-Z]\\w*)([&@*]*)'
         'name': 'meta.function.nameless-typed.ooc'
       }
@@ -561,7 +565,7 @@
           '1':
             'name': 'storage.type.ooc'
           '2':
-            'name': 'storage.modifier.pointer-arith.ooc'
+            'name': 'keyword.other.special-method.reference.ooc'
         'match': ':\\s*([A-Z_]\\w*([@&*]*))'
         'name': 'meta.function.parameter.type.ooc'
       }
