@@ -67,6 +67,9 @@
         'include': '#function_decl'
       }
       {
+        'include': '#case_typecheck'
+      }
+      {
         'include': '#variable_decl'
       }
       {
@@ -74,6 +77,30 @@
       }
       {
         'include': '#member_access'
+      }
+    ]
+  'case_typecheck':
+    'begin': '(?<=case) (\\w+)\\s*:\\s*'
+    'beginCaptures':
+      '1':
+        'name': 'variable.other.case.ooc'
+    'end': '(?==>)'
+    'name': 'meta.case.typecheck.ooc'
+    'patterns': [
+      {
+        'match': '[_A-Z]\\w*'
+        'name': 'entity.name.type.class.ooc'
+      }
+      {
+        'begin': '<'
+        'end': '>'
+        'name': 'meta.class.generic.ooc'
+        'patterns': [
+          {
+            'match': '[_A-Z]\\w*'
+            'name': 'support.function.any-method.generic.ooc'
+          }
+        ]
       }
     ]
   'class_decl':
@@ -471,7 +498,11 @@
         'include': '#return_type'
       }
       {
-        'match': '(?:[<>!=]=|=>|[><])'
+        'match': '=>'
+        'name': 'keyword.control.case.then.ooc'
+      }
+      {
+        'match': '(?:[<>!=]=|[><])'
         'name': 'keyword.operator.comparison.ooc'
       }
       {
