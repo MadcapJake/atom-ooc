@@ -77,21 +77,54 @@
       }
     ]
   'class_decl':
-    'captures':
+    'begin': '([_A-Z]\\w*\\s*):\\s*(abstract\\s+)?(class)'
+    'beginCaptures':
       '1':
         'name': 'entity.name.type.class.ooc'
       '2':
         'name': 'storage.modifier.abstract.ooc'
       '3':
         'name': 'storage.type.class.ooc'
-      '4':
-        'name': 'support.type.generic.ooc'
-      '5':
-        'name': 'storage.modifier.extends.class.ooc'
-      '6':
-        'name': 'entity.other.inherited-class.ooc'
-    'match': '(?mx)\n            ([_A-Z]\\w* \\s*) : \\s* (abstract\\s+)? (class)\n            (?:\n                \\s*<\\s*([^<]+)\\s*>\\s*\n            )?\n\t\t   (?:\n                \\s* (extends)\n            )?\n            '
+    'end': '(?=\\{)'
     'name': 'meta.class.ooc'
+    'patterns': [
+      {
+        'begin': '<'
+        'end': '>'
+        'name': 'meta.class.generic.ooc'
+        'patterns': [
+          {
+            'match': '[_A-Z]\\w*'
+            'name': 'support.function.any-method.generic.ooc'
+          }
+        ]
+      }
+      {
+        'begin': '\\b(extends) '
+        'beginCaptures':
+          '1':
+            'name': 'storage.modifier.extends.class.ooc'
+        'end': ' '
+        'patterns': [
+          {
+            'match': '[_A-Z]\\w*'
+            'name': 'entity.other.inherited-class.ooc'
+          }
+          {
+            'begin': '<'
+            'end': '>'
+            'name': 'meta.class.inherited.generic.ooc'
+            'patterns': [
+              {
+                'match': '[_A-Z]\\w*'
+                'name': 'support.function.any-method.generic.ooc'
+              }
+            ]
+          }
+        ]
+
+      }
+    ]
   'enum_decl':
     'captures':
       '1':
