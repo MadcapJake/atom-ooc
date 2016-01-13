@@ -1,7 +1,7 @@
 {
   "name": "atom-ooc",
   "main": "lib/providers",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Complete ooc support for Atom Editor",
   "repository": "https://github.com/madcapjake/atom-ooc",
   "license": "MIT",
