@@ -491,6 +491,10 @@
         'name': 'meta.type.class.this.ooc'
       }
       {
+        'match': '(?<=\\))\\. '
+        'name': 'keyword.control.chaining.ooc'
+      }
+      {
         'match': '(?:&&|\\|\\||\\#|!)'
         'name': 'keyword.operator.logical.ooc'
       }
@@ -637,7 +641,7 @@
       }
       {
         'match': '(?x) (?<! 0[bcx] ) (
-          (?: (?:[0-9_]*)\\.(?:[0-9_]+) | (?:[0-9_]+)\\.(?:[0-9_]*) )
+          (?: (?:[0-9_]*)(?<!\\.)\\.(?:[0-9_]+) | (?:[0-9_]+)\\.(?!\\.)(?:[0-9_]*) )
           (?: [eE][+\\-]?[\\d_]+)?
         )'
         'name': 'constant.numeric.float.ooc'
