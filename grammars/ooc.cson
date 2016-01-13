@@ -108,6 +108,23 @@
       \\( ([+*]) (\\d+) \\)
     )?'
     'name': 'meta.enum.ooc'
+  'closure':
+    'patterns': [
+      {
+        'begin': '\\|(?=[\\w\\-\\s\\,]*\\|)'
+        'end': '(?<=\\w)\\s*\\|'
+        'captures':
+          '0':
+            'name': 'punctuation.section.embedded.closure.parameters.ooc'
+        'name': 'meta.closure.parameters.ooc'
+        'patterns': [
+          {
+            'match': '\\b[\\w\\-]+\\b'
+            'name': 'variable.other.closure.parameter.ooc'
+          }
+        ]
+      }
+    ]
   'comments':
     'patterns': [
       {
@@ -182,6 +199,9 @@
     'patterns': [
       {
         'include': '#comments'
+      }
+      {
+        'include': '#closure'
       }
       {
         'include': '#keywords'
