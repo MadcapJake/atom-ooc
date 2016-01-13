@@ -1,8 +1,8 @@
 # Atom ooc
 Provides ooc syntax highlighting, snippets and integration with several atom packages:
+* linter (smart usage of `syntax`, `check` and `codegen` modes) [BETA]
 * atom-build (`rock -v`, `sam get`, and `sam test`) [NOT RELEASED]
 * atom-runner (run ooc scripts inside Atom) [NOT RELEASED]
-* linter (smart usage of `syntax`, `check` and `codegen` modes) [NOT RELEASED]
 * autocomplete-plus (checks entire package and imports) [NOT RELEASED]
 
 ### Installation
