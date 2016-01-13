@@ -224,9 +224,9 @@
     'begin': '(?:((?:\\.[a-z_]\\w*)|(?:[a-z_]\\w*)(?:~[a-z_]\\w*)?))\\('
     'beginCaptures':
       '1':
-        'name': 'support.function.any-method.ooc'
+        'name': 'support.function.ooc'
       '2':
-        'name': 'support.function.any-method.ooc'
+        'name': 'support.function.ooc'
     'end': '\\)'
     'name': 'meta.function.call.ooc'
     'patterns': [
@@ -550,8 +550,25 @@
       }
     ]
   'member_access':
-    'match': '([a-zA-Z_]\\w*)\\s+(?=[a-zA-Z_])'
-    'name': 'variable.other.accessed.ooc'
+    'begin': '([a-zA-Z_]\\w*)(?=[<>\\w,]*\\s+[a-zA-Z_])'
+    'beginCaptures':
+      '1':
+        'name': 'variable.other.accessed.ooc'
+    'end': ' (?=[a-zA-Z_])'
+    'name': 'meta.member.access.ooc'
+    'patterns': [
+      {
+        'begin': '<'
+        'end': '>'
+        'name': 'meta.accessed.generic.ooc'
+        'patterns': [
+          {
+            'match': '[_A-Z]\\w*'
+            'name': 'support.function.any-method.generic.ooc'
+          }
+        ]
+      }
+    ]
   'ooc_char':
     'begin': '\''
     'end': '\''
