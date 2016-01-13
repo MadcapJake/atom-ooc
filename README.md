@@ -8,7 +8,8 @@ Provides ooc syntax highlighting, snippets and integration with several atom pac
 ### Installation
 1. Install `rock` & `sam`
 2. `apm install atom-ooc`
-3. Open atom, 
+3. `atom <path-to-ooc-project>`
+4. Enjoy!
 
 ### History
 
