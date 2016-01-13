@@ -751,7 +751,7 @@
       )
       (?: (?: (This) | ([A-Z_]\\w*)) ([@&]*) )
       (?: \\s* \\<\\s*([A-Z_]\\w*)\\s*\\> )?
-    ) | ; | $ | (?=\\)) )'
+    ) | ; | $ | (?=[)=]) )'
     'endCaptures':
       '1':
         'name': 'keyword.other.ooc'
@@ -773,6 +773,10 @@
     'patterns': [
       {
         'include': '#comments'
+      }
+      {
+        'match': 'static|const'
+        'name': 'storage.type.annotation.ooc'
       }
       {
         'match': '[_a-zA-Z]\\w*'
